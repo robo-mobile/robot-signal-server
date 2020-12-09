@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>platform</title>
+</head>
+<body>
+<div id="app">
+    <video id="test-video" width="320" height="240" src="#"></video>
+</div>
+<script type=module>
+    import RTC from './src/RTC.js';
+    import SignalEmitter from './src/SignalEmitter.js';
+    import config from './config.js';
+
+    const searchParams = new URLSearchParams(window.location.search);
+    
+    const se = new SignalEmitter({
+        id: searchParams.get('id'),
+        isControl: false,
+        signalServer: config.signalServer,
+    });
+
+    const webrtc = new RTC({
+        isControl: false,
+        platformSocket: config.platformSocket
+    }, se);
+
+    webrtc.on('disconnected', () => {
+        window.location.reload();
+    });
+
+    window.onerror = function(err) {
+      console.log(err)
+    };
+</script>
+</body>
+</html>

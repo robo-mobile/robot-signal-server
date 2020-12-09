@@ -1,0 +1,25 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "source": {
+    "include": ["public/src"],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "name": "WebRTC Robot v0.0.1"
+  },
+  "opts": {
+    "template": "node_modules/tui-jsdoc-template",
+    "destination": "doc",
+    "recurse": true,
+    "readme": "README.md"
+  }
+}

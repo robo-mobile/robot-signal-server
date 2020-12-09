@@ -1,0 +1,58 @@
+.arrow {
+  border: solid #00F601;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 8px;
+  position: absolute;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.vue-slider-rail {
+  background: rgba(0, 246, 1, 0.3) !important;
+}
+.vue-slider-process {
+  background: rgba(0, 246, 1, 0.45) !important;
+}
+.vue-slider-dot-handle {
+  background: #00c201;
+  border: 2px solid #00F601;
+}
+.transmission div {
+  height: 35px !important;
+  width: 65px !important;
+  background-color: rgba(0, 246, 1, 0.5) !important;
+  &:after {
+    height: 30px !important;
+    width: 30px !important;
+    top: 3px !important;
+    background-color: rgba(0, 246, 1, 0.7) !important;
+  }
+}
+.vue-switcher div:after {
+  margin-left: -34px !important;
+}
+.vue-switcher--unchecked div:after {
+  left: 38px !important;
+}
+.vue-switcher__label {
+  font-size: 24px !important;
+  position: absolute;
+  top: 8px;
+  left: 12px;
+}
+.vue-switcher--unchecked .vue-switcher__label {
+  left: auto;
+  right: 10px;
+}
+.direction-container .vue-slider-process {
+  opacity: 0;
+}
+

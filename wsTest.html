@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WS TEST</title>
+</head>
+<body>
+<script>
+  let socket = new WebSocket("ws://localhost:5685/");
+
+  socket.onopen = function(e) {
+    console.log('OPEN');
+    setInterval(() => {
+      socket.send(JSON.stringify([1, 1]));
+    }, 2000);
+  };
+
+  socket.onmessage = function(event) {
+    console.log(`[message] Данные получены с сервера: ${event.data}`);
+  };
+
+  socket.onclose = function(event) {
+    if (event.wasClean) {
+      console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+    } else {
+      // например, сервер убил процесс или сеть недоступна
+      // обычно в этом случае event.code 1006
+      console.log('[close] Соединение прервано');
+    }
+  };
+
+  socket.onerror = function(error) {
+    console.log('ERR: ', error);
+  };
+</script>
+</body>
+</html>
