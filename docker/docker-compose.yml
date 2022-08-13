@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  wrtc:
+    image: robot
+    build:
+      context: ../src/js/
+      dockerfile: Dockerfile
+    container_name: robot
+    volumes:
+     - ../deploy/files/ssl:/app/ssl
+
+    environment:
+      - TZ=Europe/Kiev
+
+    network_mode: "host"
+    restart: on-failure
+
+  pwm:
+    image: pwm
+    build:
+      context: ../src/py/
+      dockerfile: Dockerfile
+    container_name: pwm
+
+    environment:
+      - TZ=Europe/Kiev
+      - DOCKER=True
+
+    network_mode: "host"
+    restart: on-failure

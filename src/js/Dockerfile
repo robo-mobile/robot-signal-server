@@ -1,8 +1,8 @@
 FROM node:12 as build-stage
 WORKDIR /app
-COPY  src/js/public/package*.json ./
+COPY  ./public/package*.json ./
 RUN npm install
-COPY src/js/public/ .
+COPY ./public/ .
 RUN cp _config.js config.js
 RUN npm run build
 
@@ -14,8 +14,7 @@ RUN apt install -y nodejs \
     net-tools
 
 WORKDIR /app
-COPY src/js/ .
-COPY deploy/files/ssl ./ssl
+COPY . .
 RUN npm install package.json
 COPY --from=build-stage /app/dist /app/public/dist
 CMD node index.js

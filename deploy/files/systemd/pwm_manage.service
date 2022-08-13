@@ -1,0 +1,12 @@
+[Unit]
+Description=pwm_manage service for systemd
+After=network.target
+
+[Service]
+User=pi
+Type=simple
+ExecStart=pwm start
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
