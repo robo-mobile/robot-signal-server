@@ -1,0 +1,6 @@
+asyncio==3.4.3
+RPi.GPIO==0.7.1
+# systemd==0.16.1
+websockets==9.1
+typer==0.2.1
+toml

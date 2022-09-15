@@ -1,0 +1,1 @@
+Here will be auto deployment script based on Ansible
